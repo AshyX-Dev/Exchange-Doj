@@ -93,15 +93,16 @@ var Network = /** @class */ (function () {
                             method: "GET"
                         }).then(function (resp) { return __awaiter(_this, void 0, void 0, function () {
                             var _, contract_map, contractType, confirmed, toAddress, ownerAddress, block, riskTransaction, timestamp, urlHash, balance, resourceValue;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
+                            var _a, _b;
+                            return __generator(this, function (_c) {
+                                switch (_c.label) {
                                     case 0: return [4 /*yield*/, resp.json()];
                                     case 1:
-                                        _ = _a.sent();
+                                        _ = _c.sent();
                                         contract_map = _.contract_map, contractType = _.contractType, confirmed = _.confirmed, toAddress = _.toAddress, ownerAddress = _.ownerAddress, block = _.block, riskTransaction = _.riskTransaction, timestamp = _.timestamp;
                                         urlHash = "https://tronscan.org/#/transaction/".concat(hash);
-                                        balance = _['contractData']['balance'];
-                                        resourceValue = _['contractData']['resourceValue'];
+                                        balance = (_a = _['contractData']) === null || _a === void 0 ? void 0 : _a['balance'];
+                                        resourceValue = (_b = _['contractData']) === null || _b === void 0 ? void 0 : _b['resourceValue'];
                                         callback({
                                             contracts: contract_map !== undefined ? Object.keys(contract_map) : [],
                                             contractType: contractType,

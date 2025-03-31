@@ -54,8 +54,8 @@ export class Network {
             } = _;
 
             const urlHash = `https://tronscan.org/#/transaction/${hash}`;
-            const balance = _['contractData']['balance'];
-            const resourceValue = _['contractData']['resourceValue'];
+            const balance = _['contractData']?.['balance'];
+            const resourceValue = _['contractData']?.['resourceValue'];
 
             callback({
                 contracts: contract_map !== undefined ? Object.keys(contract_map) : [],
