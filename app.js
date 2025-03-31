@@ -88,7 +88,7 @@ bot.on("message", async (message) => {
                                 },
                                 {
                                     text: "تایید ✅",
-                                    callback_data: `trns_${message.from.id}_${message.reply_to_message.text}`
+                                    callback_data: `trns_${message.from.id}`
                                 }
                             ]
                         ]
@@ -149,100 +149,140 @@ bot.on("callback_query", async (call) => {
     } else if (call.data.startsWith("accept")){
         const spl = call.data.split("_");
         const uid = parseInt(spl[1]);
-        const hash = spl[2];
-        if (uid === call.from.id){
-            await network.getAccountInfo(hash, async (account) => {
-                if (account.balance === undefined && account.transactions_in === undefined && account.transactions_out === undefined){
-                    await bot.editMessageText(
-                        "[ ❌ ] - هش اشتباه وارد شده, دوباره تلاش کنید",
-                        {
-                            message_id: call.message.message_id,
-                            chat_id: call.message.chat.id,
-                            reply_markup: {
-                                inline_keyboard: [
-                                    [
-                                        {
-                                            text: "بستن ♦",
-                                            callback_data: `close_${call.from.id}`
-                                        }
-                                    ]
-                                ]
-                            }
-                        }
-                    )
-                } else {
-                    let date = new Date(account.date_created);
-                    await bot.editMessageText(
-                        `[ 🔓 ] - هش: <code>${hash}</code>\n\n[ 🍧 ] - اسم: <code>${account.name}</code>\n[ 📪 ] - بالانس: ${account.balance}\n\n[ ⌛ ] - ساخته شده در ${date.getFullYear()}/${date.getMonth()}/${date.getDay()} - ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}\n[ 🛰 ] - <a href="https://tronscan.org/#/address/${hash}">لینک آدرس</a>`,
-                        {
-                            message_id: call.message.message_id,
-                            chat_id: call.message.chat.id,
-                            parse_mode: "HTML",
-                            reply_markup: {
-                                inline_keyboard: [
-                                    [
-                                        {
-                                            text: "بستن ♦",
-                                            callback_data: `close_${call.from.id}`
-                                        }
-                                    ]
-                                ]
-                            }
-                        }
-                    )
+        if (!call.message.reply_to_message){
+            await bot.sendMessage(
+                message.chat.id,
+                "[ ❌ ] - از پاک کردن پیام خود خودداری کنید",
+                {
+                    reply_to_message_id: message.message_id,
+                    reply_markup: {
+                        inline_keyboard: [
+                            [
+                                {
+                                    text: "بستن ❌",
+                                    callback_data: `close_${message.from.id}`
+                                }
+                            ]
+                        ]
+                    }
                 }
-            })
+            )
+        } else {
+            const hash = call.message.reply_to_message.text;
+            if (uid === call.from.id){
+                await network.getAccountInfo(hash, async (account) => {
+                    if (account.balance === undefined && account.transactions_in === undefined && account.transactions_out === undefined){
+                        await bot.editMessageText(
+                            "[ ❌ ] - هش اشتباه وارد شده, دوباره تلاش کنید",
+                            {
+                                message_id: call.message.message_id,
+                                chat_id: call.message.chat.id,
+                                reply_markup: {
+                                    inline_keyboard: [
+                                        [
+                                            {
+                                                text: "بستن ♦",
+                                                callback_data: `close_${call.from.id}`
+                                            }
+                                        ]
+                                    ]
+                                }
+                            }
+                        )
+                    } else {
+                        let date = new Date(account.date_created);
+                        await bot.editMessageText(
+                            `[ 🔓 ] - هش: <code>${hash}</code>\n\n[ 🍧 ] - اسم: <code>${account.name}</code>\n[ 📪 ] - بالانس: ${account.balance}\n\n[ ⌛ ] - ساخته شده در ${date.getFullYear()}/${date.getMonth()}/${date.getDay()} - ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}\n[ 🛰 ] - <a href="https://tronscan.org/#/address/${hash}">لینک آدرس</a>`,
+                            {
+                                message_id: call.message.message_id,
+                                chat_id: call.message.chat.id,
+                                parse_mode: "HTML",
+                                reply_markup: {
+                                    inline_keyboard: [
+                                        [
+                                            {
+                                                text: "بستن ♦",
+                                                callback_data: `close_${call.from.id}`
+                                            }
+                                        ]
+                                    ]
+                                }
+                            }
+                        )
+                    }
+                })
+            }
         }
     } else if (call.data.startsWith("trns")){
         const spl = call.data.split("_");
         const uid = parseInt(spl[1]);
-        const hash = spl[2];
-        if (uid === call.from.id){
-            await network.getTransactionInfo(hash, async (trans) => {
-                if (trans.balance === undefined && trans.toAddress === undefined && trans.ownerAddress === undefined){
-                    await bot.editMessageText(
-                        "[ ❌ ] - هش اشتباه وارد شده, دوباره تلاش کنید",
-                        {
-                            message_id: call.message.message_id,
-                            chat_id: call.message.chat.id,
-                            reply_markup: {
-                                inline_keyboard: [
-                                    [
-                                        {
-                                            text: "بستن ♦",
-                                            callback_data: `close_${call.from.id}`
-                                        }
-                                    ]
-                                ]
-                            }
-                        }
-                    )
-                } else {
-                    let conts = [];
-                    let date = new Date(trans.timestamp);
-                    for (let cont of trans.contracts){
-                        conts.push(`<code>${cont}</code>`)
+        if (!call.message.reply_to_message){
+            await bot.sendMessage(
+                message.chat.id,
+                "[ ❌ ] - از پاک کردن پیام خود خودداری کنید",
+                {
+                    reply_to_message_id: message.message_id,
+                    reply_markup: {
+                        inline_keyboard: [
+                            [
+                                {
+                                    text: "بستن ❌",
+                                    callback_data: `close_${message.from.id}`
+                                }
+                            ]
+                        ]
                     }
-                    await bot.editMessageText(
-                        `[ 🕹 ] - هش: <code>${hash}</code>\n\n[ 🎛 ] - <code>${trans.confirmed === true ? "تایید شده ✅" : "تایید نشده ❌"}</code>\n[ 📪 ] - بالانس: ${trans.balance}\n\n[ 👥 ] - شرکت کنندگان ${JSON.stringify(conts, null, 2)}\n[ ⌛ ] - ساخته شده در ${date.getFullYear()}/${date.getMonth()}/${date.getDay()} - ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}\n\n[ 🎫 ] - از سمت <code>${trans.ownerAddress}</code>\n[ 🎟 ] - ارسال به <code>${trans.toAddress}</code>\n[ 🛰 ] - <a href="${trans.urlHash}">لینک تراکنش</a>`,
-                        {
-                            message_id: call.message.message_id,
-                            chat_id: call.message.chat.id,
-                            parse_mode: "HTML",
-                            reply_markup: {
-                                inline_keyboard: [
-                                    [
-                                        {
-                                            text: "بستن ♦",
-                                            callback_data: `close_${call.from.id}`
-                                        }
-                                    ]
-                                ]
-                            }
-                        }
-                    )
                 }
-            })
+            )
+        } else {
+            const hash = call.message.reply_to_message.text;
+            if (uid === call.from.id){
+                await network.getTransactionInfo(hash, async (trans) => {
+                    if (trans.balance === undefined && trans.toAddress === undefined && trans.ownerAddress === undefined){
+                        await bot.editMessageText(
+                            "[ ❌ ] - هش اشتباه وارد شده, دوباره تلاش کنید",
+                            {
+                                message_id: call.message.message_id,
+                                chat_id: call.message.chat.id,
+                                reply_markup: {
+                                    inline_keyboard: [
+                                        [
+                                            {
+                                                text: "بستن ♦",
+                                                callback_data: `close_${call.from.id}`
+                                            }
+                                        ]
+                                    ]
+                                }
+                            }
+                        )
+                    } else {
+                        let conts = [];
+                        let date = new Date(trans.timestamp);
+                        for (let cont of trans.contracts){
+                            conts.push(`<code>${cont}</code>`)
+                        }
+                        await bot.editMessageText(
+                            `[ 🕹 ] - هش: <code>${hash}</code>\n\n[ 🎛 ] - <code>${trans.confirmed === true ? "تایید شده ✅" : "تایید نشده ❌"}</code>\n[ 📪 ] - بالانس: ${trans.balance}\n\n[ 👥 ] - شرکت کنندگان ${JSON.stringify(conts, null, 2)}\n[ ⌛ ] - ساخته شده در ${date.getFullYear()}/${date.getMonth()}/${date.getDay()} - ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}\n\n[ 🎫 ] - از سمت <code>${trans.ownerAddress}</code>\n[ 🎟 ] - ارسال به <code>${trans.toAddress}</code>\n[ 🛰 ] - <a href="${trans.urlHash}">لینک تراکنش</a>`,
+                            {
+                                message_id: call.message.message_id,
+                                chat_id: call.message.chat.id,
+                                parse_mode: "HTML",
+                                reply_markup: {
+                                    inline_keyboard: [
+                                        [
+                                            {
+                                                text: "بستن ♦",
+                                                callback_data: `close_${call.from.id}`
+                                            }
+                                        ]
+                                    ]
+                                }
+                            }
+                        )
+                    }
+                })
+            }
         }
     }
 
