@@ -168,7 +168,8 @@ bot.on("callback_query", async (call) => {
                 }
             )
         } else {
-            const hash = call.message.reply_to_message.text;
+            let hash = call.message.reply_to_message.text;
+            hash = hash.replace("/check ", "");
             if (uid === call.from.id){
                 await network.getAccountInfo(hash, async (account) => {
                     if (account.balance === undefined && account.transactions_in === undefined && account.transactions_out === undefined){
@@ -235,7 +236,8 @@ bot.on("callback_query", async (call) => {
                 }
             )
         } else {
-            const hash = call.message.reply_to_message.text;
+            let hash = call.message.reply_to_message.text;
+            hash = hash.replace("/trans ", "");
             if (uid === call.from.id){
                 await network.getTransactionInfo(hash, async (trans) => {
                     if (trans.balance === undefined && trans.toAddress === undefined && trans.ownerAddress === undefined){
