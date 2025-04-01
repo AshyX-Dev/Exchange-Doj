@@ -71,7 +71,7 @@ class Manager {
                 });
                 return;
             } else {
-                const stmt = this.db.prepare("INSERT INTO trans (uid, in_cont, in_capt, hash, trns) VALUES (?, ?, ?)");
+                const stmt = this.db.prepare("INSERT INTO trans (uid, in_cont, in_capt, hash, trns) VALUES (?, ?, ?, ?, ?)");
                 stmt.run(uid, 0, 0, "", "{}");
                 stmt.finalize((err) => {
                     if (err){
