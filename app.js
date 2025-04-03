@@ -15,7 +15,7 @@ function makeShort(string){
 let transes = {};
 
 bot.on("message", async (message) => {
-    await manager.addAccount(message.from.id);
+    await manager.addAccount(message.from.id, () => {});
     await manager.isCapt(message.from.id, async (yo) => {
         if (yo.status === "OK"){
             if (yo.is === true){
@@ -221,7 +221,7 @@ bot.on("callback_query", async (call) => {
         transes[uid]['text'] = txt;
         transes[call.from.id] = {
             mask: "member",
-            partner: 0,
+            partner: uid,
             chat_id: transes[uid]['chat_id'],
             message_id: transes[uid]['message_id'],
             text: txt
@@ -230,8 +230,8 @@ bot.on("callback_query", async (call) => {
         transes[uid]['timestamp'] = date.getTime() + 300000;
         transes[call.from.id]['timestamp'] = date.getTime() + 300000;
 
-        await manager.makeCapt(uid, 1);
-        await manager.makeCapt(call.from.id, 1);
+        await manager.makeCapt(uid, 1, (x) => {});
+        await manager.makeCapt(call.from.id, 1, (x) => {});
 
         await bot.editMessageText(txt, {
             chat_id: call.message.chat.id,
@@ -246,6 +246,8 @@ bot.on("callback_query", async (call) => {
                     ]
                 ]
             }
+        }).catch((a) => {
+            console.log(a);
         })
     } else if (call.data.startsWith("accept")){
         const spl = call.data.split("_");

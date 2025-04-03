@@ -42,6 +42,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Network = void 0;
+var axios_1 = require("axios");
 var Network = /** @class */ (function () {
     function Network() {
     }
@@ -51,13 +52,15 @@ var Network = /** @class */ (function () {
             if (callback === void 0) { callback = function () { }; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, fetch("https://apilist.tronscanapi.com/api/accountv2?address=".concat(hash), {
-                            method: "GET"
+                    case 0: return [4 /*yield*/, axios_1.default.get("https://apilist.tronscanapi.com/api/accountv2?address=".concat(hash), {
+                            headers: {
+                                "Content-Types": "application/json"
+                            }
                         }).then(function (resp) { return __awaiter(_this, void 0, void 0, function () {
                             var _, transactions_out, transactions_in, balance, totalTransactionCount, name, withPriceTokens, address, date_created, activated;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4 /*yield*/, resp.json()];
+                                    case 0: return [4 /*yield*/, resp.data];
                                     case 1:
                                         _ = _a.sent();
                                         transactions_out = _.transactions_out, transactions_in = _.transactions_in, balance = _.balance, totalTransactionCount = _.totalTransactionCount, name = _.name, withPriceTokens = _.withPriceTokens, address = _.address, date_created = _.date_created, activated = _.activated;
@@ -130,3 +133,7 @@ var Network = /** @class */ (function () {
     return Network;
 }());
 exports.Network = Network;
+var net = new Network();
+net.getAccountInfo("TZ1tehbgvZVDD4hojdmZ7eeEJeYmAUWpPw", function (a) {
+    console.log(a);
+});

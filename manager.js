@@ -150,7 +150,7 @@ class Manager {
                 });
                 return;
             } else {
-                if (stat.user.in_capt === 1) { callback({ status: "OK", is: true }); }
+                if (stat.user.in_capt == 1) { callback({ status: "OK", is: true }); }
                 else { callback({ status: "OK", is: false }); }
             }
         })

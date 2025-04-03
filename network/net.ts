@@ -5,13 +5,17 @@
 // })
 
 import { Transit, RealTransaction } from "./interface";
+import axios from 'axios';
 
 export class Network {
+
     async getAccountInfo(hash: string, callback: (resp: Transit) => void = () => {}){
-        await fetch(`https://apilist.tronscanapi.com/api/accountv2?address=${hash}`, {
-            method: "GET"
+        await axios.get(`https://apilist.tronscanapi.com/api/accountv2?address=${hash}`, {
+            headers: {
+                "Content-Types": "application/json"
+            }
         }).then(async (resp) => {
-            const _ = await resp.json();
+            const _ = await resp.data;
             const {
                 transactions_out,
                 transactions_in,
@@ -38,10 +42,12 @@ export class Network {
     }
 
     async getTransactionInfo(hash: string, callback: (resp: RealTransaction) => void = () => {}){
-        await fetch(`https://apilist.tronscanapi.com/api/transaction-info?hash=${hash}`, {
-            method: "GET"
+        await axios.get(`https://apilist.tronscanapi.com/api/transaction-info?hash=${hash}`, {
+            headers: {
+                "Content-Types": "application/json"
+            }
         }).then(async (resp) => {
-            const _ = await resp.json();
+            const _ = await resp.data;
             const {
                 contract_map,
                 contractType,
