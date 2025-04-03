@@ -57,7 +57,24 @@ bot.on("message", async (message) => {
 [ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
-                                    parse_mode: "HTML"
+                                    parse_mode: "HTML",
+                                    reply_markup: {
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             );
                             break;
@@ -74,7 +91,24 @@ bot.on("message", async (message) => {
 [ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
-                                    parse_mode: "HTML"
+                                    parse_mode: "HTML",
+                                    reply_markup: {
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             );
                             break;
@@ -90,7 +124,24 @@ bot.on("message", async (message) => {
 [ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
-                                    parse_mode: "HTML"
+                                    parse_mode: "HTML",
+                                    reply_markup: {
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             );
                             break;
@@ -106,7 +157,24 @@ bot.on("message", async (message) => {
 [ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
-                                    parse_mode: "HTML"
+                                    parse_mode: "HTML",
+                                    reply_markup: {
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             );
                             break;
@@ -122,7 +190,24 @@ bot.on("message", async (message) => {
 [ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
-                                    parse_mode: "HTML"
+                                    parse_mode: "HTML",
+                                    reply_markup: {
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             );
                             break;
@@ -138,7 +223,24 @@ bot.on("message", async (message) => {
 [ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
-                                    parse_mode: "HTML"
+                                    parse_mode: "HTML",
+                                    reply_markup: {
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             );
                             break;
@@ -154,7 +256,24 @@ bot.on("message", async (message) => {
 [ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
-                                    parse_mode: "HTML"
+                                    parse_mode: "HTML",
+                                    reply_markup: {
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             );
                             break;
@@ -170,7 +289,24 @@ bot.on("message", async (message) => {
 [ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
-                                    parse_mode: "HTML"
+                                    parse_mode: "HTML",
+                                    reply_markup: {
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             );
                             break;
@@ -186,7 +322,24 @@ bot.on("message", async (message) => {
 [ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
-                                    parse_mode: "HTML"
+                                    parse_mode: "HTML",
+                                    reply_markup: {
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             );
                             break;
@@ -204,7 +357,14 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML",
                                     reply_to_message_id: message.message_id,
                                     reply_markup: {
-                                        inline_keyboard: [
+                                        inline_keyboard:
+                                        [
+                                            [
+                                                {
+                                                    text: "𝙖𝙙𝙙 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥",
+                                                    url: "http://t.me/ePrexTmbot?startgroup=new"
+                                                }
+                                            ],
                                             [
                                                 {
                                                     text: "close",
