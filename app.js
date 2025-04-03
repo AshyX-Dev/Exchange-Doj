@@ -60,6 +60,7 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                            break;
                         case "سامان":
                             case "ایران":
                             await bot.sendPhoto(
@@ -76,6 +77,7 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                            break;
                         case "ملت":
                             await bot.sendPhoto(
                                 message.chat.id,
@@ -91,6 +93,7 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                            break;
                         case "صادرات":
                             await bot.sendPhoto(
                                 message.chat.id,
@@ -106,6 +109,7 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                            break;
                         case "پاسارگاد":
                             await bot.sendPhoto(
                                 message.chat.id,
@@ -121,6 +125,7 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                            break;
                         case "سپه":
                             await bot.sendPhoto(
                                 message.chat.id,
@@ -136,6 +141,7 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                            break;
                         case "سرمایه":
                             await bot.sendPhoto(
                                 message.chat.id,
@@ -151,6 +157,7 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                            break;
                         case "اینده":
                             await bot.sendPhoto(
                                 message.chat.id,
@@ -166,6 +173,7 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                            break;
                         case "آینده":
                             await bot.sendPhoto(
                                 message.chat.id,
@@ -181,6 +189,7 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                            break;
                         
                         default:
                             await bot.sendMessage(
