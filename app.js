@@ -44,30 +44,179 @@ bot.on("message", async (message) => {
                         }
                     )
                 } else {
-                    await bot.sendMessage(
-                        message.chat.id,
-                        `
-[ 🛰 ] - اسم <code>${_['data']['name']}</code>
-[ 📐 ] - کارت <code>${_['data']['card']}</code>
-[ 🎾 ] - شبا <code>${_['data']['shaba']}</code>
-[ 🔐 ] - بانک <code>${_['data']['bank']}</code>
+                    switch (_['data']['bank']){
+                        case "ایران":
+                            await bot.sendPhoto(
+                                message.chat.id,
+                                "iran.png",
+                                {
+                                    caption: `
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
                         `,
-                        {
-                            reply_to_message_id: message.message_id,
-                            reply_markup: {
-                                inline_keyboard: [
-                                    [
-                                        {
-                                            text: "close",
-                                            callback_data: `close_${message.from.id}`
-                                        }
-                                    ]
-                                ]
-                            }
-                        }
-                    )
+                                    reply_to_message_id: message.message_id,
+                                    parse_mode: "HTML"
+                                }
+                            );
+                        case "ملت":
+                            await bot.sendPhoto(
+                                message.chat.id,
+                                "melat.jpg",
+                                {
+                                    caption: `
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+                        `,
+                                    reply_to_message_id: message.message_id,
+                                    parse_mode: "HTML"
+                                }
+                            );
+                        case "صادرات":
+                            await bot.sendPhoto(
+                                message.chat.id,
+                                "iran.png",
+                                {
+                                    caption: `
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+                        `,
+                                    reply_to_message_id: message.message_id,
+                                    parse_mode: "HTML"
+                                }
+                            );
+                        case "پاسارگاد":
+                            await bot.sendPhoto(
+                                message.chat.id,
+                                "pasargod.jpg",
+                                {
+                                    caption: `
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+                        `,
+                                    reply_to_message_id: message.message_id,
+                                    parse_mode: "HTML"
+                                }
+                            );
+                        case "سپه":
+                            await bot.sendPhoto(
+                                message.chat.id,
+                                "sepah.png",
+                                {
+                                    caption: `
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+                        `,
+                                    reply_to_message_id: message.message_id,
+                                    parse_mode: "HTML"
+                                }
+                            );
+                        case "سرمایه":
+                            await bot.sendPhoto(
+                                message.chat.id,
+                                "sarmaye.jfif",
+                                {
+                                    caption: `
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+                        `,
+                                    reply_to_message_id: message.message_id,
+                                    parse_mode: "HTML"
+                                }
+                            );
+                        case "اینده":
+                            await bot.sendPhoto(
+                                message.chat.id,
+                                "ayande.jpg",
+                                {
+                                    caption: `
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+                        `,
+                                    reply_to_message_id: message.message_id,
+                                    parse_mode: "HTML"
+                                }
+                            );
+                        case "آینده":
+                            await bot.sendPhoto(
+                                message.chat.id,
+                                "ayande.jpg",
+                                {
+                                    caption: `
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+                        `,
+                                    reply_to_message_id: message.message_id,
+                                    parse_mode: "HTML"
+                                }
+                            );
+                        
+                        default:
+                            await bot.sendMessage(
+                                message.chat.id,
+                                `
+        [ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+        [ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+        [ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+        [ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+                                `,
+                                {
+                                    parse_mode: "HTML",
+                                    reply_to_message_id: message.message_id,
+                                    reply_markup: {
+                                        inline_keyboard: [
+                                            [
+                                                {
+                                                    text: "close",
+                                                    callback_data: `close_${message.from.id}`
+                                                }
+                                            ]
+                                        ]
+                                    }
+                                }
+                            )
+                    }
                 }
+            }).catch(async (err) => {
+                await bot.sendMessage(
+                    message.chat.id,
+                    "[ ❌ ] - شماره کارت خود را چک کنید و دوباره تلاش کنید\n\n[ 👁 ] - چک کردن 16 رقمی بودن\n[ 🌐 ] - اطمینان از صحت آن",
+                    {
+                        reply_to_message_id: message.message_id,
+                        reply_markup: {
+                            inline_keyboard: [
+                                [
+                                    {
+                                        text: "close",
+                                        callback_data: `close_${message.from.id}`
+                                    }
+                                ]
+                            ]
+                        }
+                    }
+                )
             })
+
+        } else {
+            await bot.sendMessage(
+                message.chat.id,
+                "[ ❌ ] - روی شماره کارت ریپلای کنید"
+            )
         }
     }
 })
