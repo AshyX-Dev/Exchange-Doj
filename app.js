@@ -60,6 +60,22 @@ bot.on("message", async (message) => {
                                     parse_mode: "HTML"
                                 }
                             );
+                        case "سامان":
+                            case "ایران":
+                            await bot.sendPhoto(
+                                message.chat.id,
+                                "saman.png",
+                                {
+                                    caption: `
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+                        `,
+                                    reply_to_message_id: message.message_id,
+                                    parse_mode: "HTML"
+                                }
+                            );
                         case "ملت":
                             await bot.sendPhoto(
                                 message.chat.id,
@@ -170,10 +186,10 @@ bot.on("message", async (message) => {
                             await bot.sendMessage(
                                 message.chat.id,
                                 `
-        [ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-        [ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-        [ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-        [ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🎫 ] - اسم <blockquote>${_['data']['name']}</blockquote>
+[ 💳 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
+[ 🎛 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
+[ 🔐 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
                                 `,
                                 {
                                     parse_mode: "HTML",
