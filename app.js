@@ -1,4 +1,4 @@
-const token = "7818062489:AAEh3vbk2z212B2Yls-aP6znsu-zcRa6Vc8";
+const token = "7818062489:AAGk_iW5eECDmT6mxQaA7HBBLb8J6Vwztg4";
 
 const TelegramBot = require("node-telegram-bot-api");
 const { Network } = require("./network/net");
