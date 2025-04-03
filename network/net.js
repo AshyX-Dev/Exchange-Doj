@@ -133,7 +133,7 @@ var Network = /** @class */ (function () {
     return Network;
 }());
 exports.Network = Network;
-var net = new Network();
-net.getAccountInfo("TZ1tehbgvZVDD4hojdmZ7eeEJeYmAUWpPw", function (a) {
-    console.log(a);
-});
+// var net = new Network();
+// net.getAccountInfo("TZ1tehbgvZVDD4hojdmZ7eeEJeYmAUWpPw", function (a) {
+//     console.log(a);
+// });

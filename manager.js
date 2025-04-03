@@ -1,35 +1,54 @@
-const { Database } = require("sqlite3");
+const knex = require('knex')({
+    client: 'sqlite3',
+    connection: {
+        filename: './mydb.sqlite'
+    }
+});
 
 class Manager {
     constructor(){
-        this.db = new Database("trans.db", (err) => {
-            if (err){
-                console.log(`[manager] error for trans dbs: ${err}`);
-            } else {
-                this.setup();
-            }
+        knex.schema.createTableIfNotExists("trans", (table) => {
+            table.integer("uid").primary();
+            table.integer("in_cont");
+            table.integer("in_capt");
+            table.string("hash");
+            table.string("trns");
+        }).then(() => {
+            console.log("Database created")
         })
     }
 
-    setup(){
-        this.db.run("CREATE TABLE IF NOT EXISTS trans ( uid INTEGER PRIMARY KEY, in_cont INTEGER, in_capt INTEGER, hash TEXT, trns TEXT )");
-    }
+    // setup(){
+    //     this.db.run("CREATE TABLE IF NOT EXISTS trans ( uid INTEGER PRIMARY KEY, in_cont INTEGER, in_capt INTEGER, hash TEXT, trns TEXT )");
+    // }
 
     async getAll(callback = () => {}){
-        this.db.all("SELECT * FROM trans", [], (err, rows) => {
-            if (err){
-                callback({
-                    status: "ERROR",
-                    message: err
-                });
-                return;
-            } else {
-                callback({
-                    status: "OK",
-                    rows: rows
-                });
-                return;
-            }
+        // this.db.all("SELECT * FROM trans", [], (err, rows) => {
+        //     if (err){
+                // callback({
+                //     status: "ERROR",
+                //     message: err
+                // });
+        //         return;
+        //     } else {
+                // callback({
+                //     status: "OK",
+                //     rows: rows
+                // });
+        //         return;
+        //     }
+        // })
+
+        knex("trans").select("*").then((rows) => {
+            callback({
+                status: "OK",
+                rows: rows
+            });
+        }).catch((err) => {
+            callback({
+                status: "ERROR",
+                message: err
+            });
         })
     }
 
@@ -71,21 +90,37 @@ class Manager {
                 });
                 return;
             } else {
-                const stmt = this.db.prepare("INSERT INTO trans (uid, in_cont, in_capt, hash, trns) VALUES (?, ?, ?, ?, ?)");
-                stmt.run(uid, 0, 0, "", "{}");
-                stmt.finalize((err) => {
-                    if (err){
-                        callback({
-                            status: "FINALIZE_FAILD"
-                        });
-                        return;
-                    } else {
-                        callback({
-                            status: "OK"
-                        });
-                        return;
-                    }
+                knex("trans").insert([
+                    uid,
+                    0,
+                    0,
+                    "",
+                    "{}"
+                ]).then(() => {
+                    callback({
+                        status: "OK"
+                    });
+                }).catch((err) => {
+                    callback({
+                        status: "ERROR",
+                        message: err
+                    });
                 })
+                // const stmt = this.db.prepare("INSERT INTO trans (uid, in_cont, in_capt, hash, trns) VALUES (?, ?, ?, ?, ?)");
+                // stmt.run(uid, 0, 0, "", "{}");
+                // stmt.finalize((err) => {
+                //     if (err){
+                //         callback({
+                //             status: "FINALIZE_FAILD"
+                //         });
+                //         return;
+                //     } else {
+                //         callback({
+                //             status: "OK"
+                //         });
+                //         return;
+                //     }
+                // })
             }
         })
     }
@@ -109,20 +144,32 @@ class Manager {
                     to: to,
                     at: at
                 });
-                const stmt = this.db.prepare("UPDATE trans SET trns = ? WHERE uid = ?");
-                stmt.run(JSON.stringify(stat.user.trns), uid);
-                stmt.finalize((err) => {
-                    if (err){
-                        callback({
-                            status: "FINALIZE_FAILD"
-                        });
-                        return;
-                    } else {
-                        callback({
-                            status: "OK"
-                        });
-                        return;
-                    }
+                // const stmt = this.db.prepare("UPDATE trans SET trns = ? WHERE uid = ?");
+                // stmt.run(JSON.stringify(stat.user.trns), uid);
+                // stmt.finalize((err) => {
+                //     if (err){
+                //         callback({
+                //             status: "FINALIZE_FAILD"
+                //         });
+                //         return;
+                //     } else {
+                //         callback({
+                //             status: "OK"
+                //         });
+                //         return;
+                //     }
+                // })
+                knex("trans").where("uid", uid).update({
+                    trns: JSON.stringify(stat.user.trns)
+                }).then(() => {
+                    callback({
+                        status: "OK"
+                    });
+                }).catch((err) => {
+                    callback({
+                        status: "ERROR",
+                        message: err
+                    });
                 })
             }
         })
@@ -168,20 +215,32 @@ class Manager {
                 });
                 return;
             } else {
-                const stmt = this.db.prepare("UPDATE trans SET in_capt = ? WHERE uid = ?");
-                stmt.run(status === 1 ? true : false, uid);
-                stmt.finalize((err) => {
-                    if (err){
-                        callback({
-                            status: "FINALIZE_FAILD"
-                        });
-                        return;
-                    } else {
-                        callback({
-                            status: "OK"
-                        });
-                        return;
-                    }
+                // const stmt = this.db.prepare("UPDATE trans SET in_capt = ? WHERE uid = ?");
+                // stmt.run(status === 1 ? true : false, uid);
+                // stmt.finalize((err) => {
+                //     if (err){
+                //         callback({
+                //             status: "FINALIZE_FAILD"
+                //         });
+                //         return;
+                //     } else {
+                //         callback({
+                //             status: "OK"
+                //         });
+                //         return;
+                //     }
+                // })
+                knex("trans").where("uid", uid).update({
+                    in_capt: status == 1 ? true : false
+                }).then(() => {
+                    callback({
+                        status: "OK"
+                    });
+                }).catch((err) => {
+                    callback({
+                        status: "ERROR",
+                        message: err
+                    });
                 })
             }
         })
@@ -199,20 +258,17 @@ class Manager {
                 });
                 return;
             } else {
-                const stmt = this.db.prepare("UPDATE trans SET in_cont = ? WHERE uid = ?");
-                stmt.run(status === 1 ? true : false, uid);
-                stmt.finalize((err) => {
-                    if (err){
-                        callback({
-                            status: "FINALIZE_FAILD"
-                        });
-                        return;
-                    } else {
-                        callback({
-                            status: "OK"
-                        });
-                        return;
-                    }
+                knex("trans").where("uid", uid).update({
+                    in_cont: status == 1 ? true : false
+                }).then(() => {
+                    callback({
+                        status: "OK"
+                    });
+                }).catch((err) => {
+                    callback({
+                        status: "ERROR",
+                        message: err
+                    });
                 })
             }
         })
@@ -230,20 +286,17 @@ class Manager {
                 });
                 return;
             } else {
-                const stmt = this.db.prepare("UPDATE trans SET hash = ? WHERE uid = ?");
-                stmt.run(hash, uid);
-                stmt.finalize((err) => {
-                    if (err){
-                        callback({
-                            status: "FINALIZE_FAILD"
-                        });
-                        return;
-                    } else {
-                        callback({
-                            status: "OK"
-                        });
-                        return;
-                    }
+                knex("trans").where("uid", uid).update({
+                    hash: hash
+                }).then(() => {
+                    callback({
+                        status: "OK"
+                    });
+                }).catch((err) => {
+                    callback({
+                        status: "ERROR",
+                        message: err
+                    });
                 })
             }
         })

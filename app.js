@@ -9,10 +9,14 @@ const network = new Network();
 const manager = new Manager();
 
 function makeShort(string){
-    return string.replace(text.slice(5, 10), "[...]")
+    return string.replace(string.slice(5, 10), "[...]")
 }
 
 let transes = {};
+
+bot.on("polling_error", (a) => {
+    console.log(a.message);
+})
 
 bot.on("message", async (message) => {
     await manager.addAccount(message.from.id, () => {});
