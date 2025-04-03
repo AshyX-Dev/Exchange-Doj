@@ -51,10 +51,10 @@ bot.on("message", async (message) => {
                                 "iran.png",
                                 {
                                     caption: `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
                                     parse_mode: "HTML"
@@ -67,10 +67,10 @@ bot.on("message", async (message) => {
                                 "saman.png",
                                 {
                                     caption: `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
                                     parse_mode: "HTML"
@@ -82,10 +82,10 @@ bot.on("message", async (message) => {
                                 "melat.jpg",
                                 {
                                     caption: `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
                                     parse_mode: "HTML"
@@ -97,10 +97,10 @@ bot.on("message", async (message) => {
                                 "iran.png",
                                 {
                                     caption: `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
                                     parse_mode: "HTML"
@@ -112,10 +112,10 @@ bot.on("message", async (message) => {
                                 "pasargod.jpg",
                                 {
                                     caption: `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
                                     parse_mode: "HTML"
@@ -127,10 +127,10 @@ bot.on("message", async (message) => {
                                 "sepah.png",
                                 {
                                     caption: `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
                                     parse_mode: "HTML"
@@ -142,10 +142,10 @@ bot.on("message", async (message) => {
                                 "sarmaye.jfif",
                                 {
                                     caption: `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
                                     parse_mode: "HTML"
@@ -157,10 +157,10 @@ bot.on("message", async (message) => {
                                 "ayande.jpg",
                                 {
                                     caption: `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
                                     parse_mode: "HTML"
@@ -172,10 +172,10 @@ bot.on("message", async (message) => {
                                 "ayande.jpg",
                                 {
                                     caption: `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                         `,
                                     reply_to_message_id: message.message_id,
                                     parse_mode: "HTML"
@@ -186,10 +186,10 @@ bot.on("message", async (message) => {
                             await bot.sendMessage(
                                 message.chat.id,
                                 `
-[ 🕷 ] - اسم <blockquote>${_['data']['name']}</blockquote>
-[ 🦋 ] - <strong>کارت</strong> <code>${_['data']['card']}</code>
-[ 🕸 ] - <strong>شبا </strong><code>${_['data']['shaba']}</code>
-[ 🌊 ] - <strong>بانک</strong> <code>${_['data']['bank']}</code>
+[ 🕷 ] - <strong>اسم</strong>⊀ <code>${_['data']['name']}</code>
+[ 🦋 ] - <strong>کارت</strong>⊀ <code>${_['data']['card']}</code>
+[ 🕸 ] - <strong>شبا </strong>⊀ <code>${_['data']['shaba']}</code>
+[ 🌊 ] - <strong>بانک</strong>⊀ <code>${_['data']['bank']}</code>
                                 `,
                                 {
                                     parse_mode: "HTML",
