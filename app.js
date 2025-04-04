@@ -34,7 +34,7 @@ bot.on("message", async (message) => {
                                 inline_keyboard: [
                                     [
                                         {
-                                            text: "close",
+                                            text: "𝙘𝙡𝙤𝙨𝙚",
                                             callback_data: `close_${message.from.id}`
                                         }
                                     ]
@@ -68,7 +68,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -102,7 +102,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -135,7 +135,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -168,7 +168,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -201,7 +201,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -234,7 +234,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -267,7 +267,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -300,7 +300,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -333,7 +333,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -366,7 +366,7 @@ bot.on("message", async (message) => {
                                             ],
                                             [
                                                 {
-                                                    text: "close",
+                                                    text: "𝙘𝙡𝙤𝙨𝙚",
                                                     callback_data: `close_${message.from.id}`
                                                 }
                                             ]
@@ -386,7 +386,7 @@ bot.on("message", async (message) => {
                             inline_keyboard: [
                                 [
                                     {
-                                        text: "close",
+                                        text: "𝙘𝙡𝙤𝙨𝙚",
                                         callback_data: `close_${message.from.id}`
                                     }
                                 ]
@@ -399,14 +399,79 @@ bot.on("message", async (message) => {
         } else {
             await bot.sendMessage(
                 message.chat.id,
-                "[ ❌ ] - روی شماره کارت ریپلای کنید"
+                "[ ❌ ] - روی شماره کارت ریپلای کنید",
+                {
+                    reply_to_message_id: message.message_id,
+                    reply_markup: {
+                        inline_keyboard: [
+                            [
+                                {
+                                    text: "𝙘𝙡𝙤𝙨𝙚",
+                                    callback_data: `close_${message.from.id}`
+                                }
+                            ]
+                        ]
+                    }
+                }
+            )
+        }
+    } else if (message.text.startsWith("چک")){
+        if (message.reply_to_message){
+            await network.getAccountInfo(message.reply_to_message.text, async (account) => {
+                if (account.date_created == undefined && account.address == undefined){
+                    await bot.sendMessage(
+                        message.chat.id,
+                        "[ ❌ ] - هش ارسال شده نا معتبر میباشد",
+                        {
+                            reply_to_message_id: message.message_id,
+                            reply_markup: {
+                                inline_keyboard: [
+                                    [
+                                        {
+                                            text: "𝙘𝙡𝙤𝙨𝙚",
+                                            callback_data: `close_${message.from.id}`
+                                        }
+                                    ]
+                                ]
+                            }
+                        }
+                    )
+                } else {
+                    let date = new Date(account.date_created);
+                    await bot.sendMessage(
+                        message.chat.id,
+                        `[ 📪 ] - آدرس: <code>${message.reply_to_message.text}</code>\n[ ⌛ ] - ساخته شده در ${date.getFullYear()}/${date.getMonth()}/${date.getDay()} - ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}\n\n[ ♻ ] - فعال ${account.activated == true ? "شده ✅" : "نشده ❌"}\n[ 🍷 ] - بالانس: ${account.balance}\n\n[ 👤 ] - <a href="https://tronscan.org/#/address/${message.reply_to_message.text}">لینک اکانت</a>`,
+                        {
+                            reply_to_message_id: message.message_id,
+                            parse_mode: "HTML"
+                        }
+                    )
+                }
+            })
+        } else {
+            await bot.sendMessage(
+                message.chat.id,
+                "[ ❌ ] - روی هش ریپلای کنید",
+                {
+                    reply_to_message_id: message.message_id,
+                    reply_markup: {
+                        inline_keyboard: [
+                            [
+                                {
+                                    text: "𝙘𝙡𝙤𝙨𝙚",
+                                    callback_data: `close_${message.from.id}`
+                                }
+                            ]
+                        ]
+                    }
+                }
             )
         }
     }
 })
 
 bot.on("callback_query", async (call) => {
-    if (call.data.startsWith("close")){
+    if (call.data.startsWith("𝙘𝙡𝙤𝙨𝙚")){
         const spl = call.data.split("_");
         const uid = parseInt(spl[1]);
         if (call.from.id == uid){
